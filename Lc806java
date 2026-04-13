@@ -1,0 +1,25 @@
+public class Lc806{
+    public static void main(String args[]){
+        class Solution {
+    public int[] numberOfLines(int[] widths, String s) {
+        int lines = 1;       // At least one line
+        int currentWidth = 0;
+        
+        for (char ch : s.toCharArray()) {
+            int w = widths[ch - 'a'];
+            
+            // Check if adding exceeds 100
+            if (currentWidth + w > 100) {
+                lines++;           // Move to next line
+                currentWidth = w;  // Start new line
+            } else {
+                currentWidth += w;
+            }
+        }
+        
+        return new int[]{lines, currentWidth};
+    }
+}
+numberOfLines nl=new numberOfLines();
+    }
+}
